@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=League+Spartan:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=League+Spartan:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap');
+
+body {
+    height: 100vh;
+    background: rgba(255, 122, 204, 0.666);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-family: 'League Spartan', sans-serif;
+    color: white;
+}
+
+.navbar {
+
+}
+
+
+.container {
+    background: hsla(0, 0%, 94%, 0.2);
+    border-radius: 2rem;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 3rem;
+    width: 45%;
+    height: 45%;
+}
+
+.mode-container {
+    display: flex;
+    gap: 1rem;
+    margin: 0.4rem;
+    padding: 1.5rem;
+    justify-self: center;
+}
+
+.mode-button {
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 25px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 8rem;
+    height: 3rem;
+}
+
+.timer-container {
+    font-size: 7rem;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: white;
+    justify-self: center;
+}
+
+.timer-button {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    width: 10rem;
+    height: 3rem;
+    margin: 1.5rem;
+    justify-self: center;
+
+}
+
+.active {
+    background: rgba(241, 110, 191, 0.641);
+}
