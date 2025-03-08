@@ -58,9 +58,9 @@ function updateTimerDisplay(timeLeft) {
 
 function startTimer() {
     let timeLeft = 0;
-
+    const time = getTime();
     if(!isRunning){
-        timeLeft = 25 * 60;
+        timeLeft = time * 60;
         isRunning = true;
         timer = setInterval(() => {
             if(timeLeft > 0){
@@ -82,5 +82,15 @@ function removeActiveStyle() {
         document.querySelector('.js-short-break-button').classList.remove("active");
     }else {
         document.querySelector('.js-long-break-button').classList.remove("active");
+    }
+}
+
+function getTime() {
+    if (mode === 'Pomodoro'){
+       return pomodoro.time;
+    }else if (mode === 'ShortBreak'){
+        return shortBreak.time;
+    }else {
+        return longBreak.time;
     }
 }
