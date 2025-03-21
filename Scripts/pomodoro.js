@@ -3,6 +3,7 @@ let timer;
 let isRunning = false;
 let pomodorosCompleted = 0;
 
+
 let pomodoro = {
     time: 25,
     timeString: `${this.time}:00`
@@ -23,7 +24,11 @@ document.querySelector('.js-start-button').addEventListener('click', () => {
         document.querySelector('.js-start-button').innerText = 'Stop';
         startTimer();
     }else {
-        document.querySelector('.js-start-button').innerText = 'Start';
+        setTimeout(() => {
+                document.querySelector('.js-start-button').innerText = 'Start';
+                stopTimer();
+            }, 2000);
+        
     }
 })
 
@@ -51,9 +56,8 @@ document.querySelector('.js-long-break-button').addEventListener('click', () => 
 function updateTimerDisplay(timeLeft) {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
-    console.log(minutes);
-    console.log(seconds);
     document.getElementById('pomodoro-time').innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    document.getElementById('tab').innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds} Pom Garden`;
 }
 
 function startTimer() {
@@ -64,15 +68,26 @@ function startTimer() {
         isRunning = true;
         timer = setInterval(() => {
             if(timeLeft > 0){
-                timeLeft--;
-                updateTimerDisplay(timeLeft);
+                timeLeft--;                
             } else {
                 clearInterval(timer);
                 isRunning = false;
                 alert("Time's up! 🎉");
             }
+            updateTimerDisplay(timeLeft);
         }, 1000);
     }
+}
+
+function stopTimer() {
+    clearInterval(timer);
+    isRunning = false;
+    if (mode != 'Pomodoro'){
+        mode = 'Pomodoro';
+        removeActiveStyle();
+        document.querySelector('.js-pomodoro-button').classList.add("active");
+    }
+    document.getElementById('pomodoro-time').innerText = '25:00';
 }
 
 function removeActiveStyle() {

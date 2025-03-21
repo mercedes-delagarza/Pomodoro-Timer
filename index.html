@@ -8,12 +8,14 @@
 </head>
 <body>
     <header>
-        <h1>Timer</h1>
         <nav class="navbar">
-            <ul>
-                <li>Stats</li>
-                <li>Settings</li>
-            </ul>
+            <h1>pom garden</h1>
+            <div class="menu">
+                <ul>
+                    <li>Stats</li>
+                    <li>Settings</li>
+                </ul>
+            </div>
         </nav>
     </header>
     <div class="container">
@@ -23,7 +25,10 @@
             <button class="mode-button js-long-break-button">Long Break</button>
        </div> 
        <div id="pomodoro-time" class="timer-container js-pomodoro-time">25:00</div>
-       <button class="timer-button js-start-button">Start</button>
+       <button class="timer-button js-start-button">
+            <div class="progress-bar"></div>
+            Start
+        </button>
     </div>
 
     <script src="/Scripts/pomodoro.js"></script>
