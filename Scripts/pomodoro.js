@@ -74,7 +74,7 @@ const Pomodoro = (function () {
                     this.completedPomodoros++;
                     this.saveToStorage();
                     if(this.completedPomodoros === 4) {
-                        this.currentMode = 'LongBreak'
+                        this.currentMode = 'LongBreak';
                         this.completedPomodoros = 0;
                         updateTimerDisplay(longBreakDuration * 60000);
                         document.querySelector('.js-long-break-button').classList.add("active");
@@ -99,7 +99,7 @@ const Pomodoro = (function () {
             },
 
             saveToStorage() {
-                let count = localStorage.getItem('pomodorosCompleted')
+                var count = localStorage.getItem('pomodorosCompleted');
                 localStorage.setItem('pomodorosCompleted', count++);
             }
         };
