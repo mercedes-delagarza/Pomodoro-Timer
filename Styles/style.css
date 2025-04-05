@@ -2,9 +2,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&family=League+Spartan:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dongle&family=League+Spartan:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap');
 
+
+:root {
+    --bg-color: #ffe5e5;
+    --secondary-color: pink;
+    --active-btn: rgb(247, 150, 179);
+    --
+}
+
+.apple-theme {
+    --bg-color: #ffcdcd;
+    --secondary-color: rgb(224, 78, 103);
+    --active-btn: rgb(255, 139, 139);
+}
+
+.peach-theme {
+    --bg-color: #fff0c7;
+    --secondary-color: #ed84ab;
+    --active-btn: #f19bbb;
+}
+
+.pear-theme {
+    --bg-color: #dcffed;
+    --secondary-color: rgb(124, 226, 150);
+    --active-btn: rgb(148, 255, 159);
+}
+
+.cherry-theme {
+    --bg-color: #ffbdbd;
+    --secondary-color: rgb(255, 107, 132);
+    --active-btn: rgb(245, 135, 115);
+}
+
+.orange-theme {
+    --bg-color: #ffe0b9;
+    --secondary-color: rgb(255, 194, 108);
+    --active-btn: rgb(255, 208, 138);
+}
+
+.coconut-theme {
+    --bg-color: #ffeed7;
+    --secondary-color: rgb(151, 113, 71);
+    --active-btn: rgb(188, 146, 87);
+}
 body {
     height: 100vh;
-    background: #ffd0e9;
+    background: var(--bg-color);
     background-repeat: no-repeat;
     background-size: auto;
     margin: 0;
@@ -17,7 +60,7 @@ header {
 
 .navbar {
     display: flex;
-    background: #BE5985;
+    background: var(--secondary-color);
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -50,8 +93,8 @@ a {
 
 
 .container {
-    background: #BE5985;
     border-radius: 2rem;
+    border: 0.5rem solid var(--secondary-color);
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
     justify-self: center;
     display: flex;
@@ -110,7 +153,7 @@ a {
 }
 
 .active {
-    background: #ffb3d4;
+    background: var(--active-btn);
 }
 
 .modal {

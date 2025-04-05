@@ -88,36 +88,42 @@ appleTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'apple';
     appleTheme.classList.add('activeTheme');
+    document.body.classList.add(`apple-theme`);
 }
 
 peachTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'peach';
     peachTheme.classList.add('activeTheme');
+    document.body.classList.add(`peach-theme`);
 }
 
 pearTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'pear';
     pearTheme.classList.add('activeTheme');
+    document.body.classList.add(`pear-theme`);
 }
 
 orangeTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'orange';
     orangeTheme.classList.add('activeTheme');
+    document.body.classList.add(`orange-theme`);
 }
 
 cherryTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'cherry';
     cherryTheme.classList.add('activeTheme');
+    document.body.classList.add(`cherry-theme`);
 }
 
 coconutTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'coconut';
     coconutTheme.classList.add('activeTheme');
+    document.body.classList.add(`coconut-theme`);
 }
 
 export function loadFromStorage() {
@@ -211,21 +217,27 @@ function removeOldTheme() {
 
     if (settings.theme === 'apple'){
         appleTheme.classList.remove('activeTheme');
+        document.body.classList.remove(`apple-theme`);
     }
     else if (settings.theme === 'peach'){
         peachTheme.classList.remove('activeTheme');
+        document.body.classList.remove(`peach-theme`);
     }
     else if (settings.theme === 'pear'){
         pearTheme.classList.remove('activeTheme');
+        document.body.classList.remove(`pear-theme`);
     }
     else if (settings.theme === 'cherry'){
         cherryTheme.classList.remove('activeTheme');
+        document.body.classList.remove(`cherry-theme`);
     }
     else if (settings.theme === 'orange'){
         orangeTheme.classList.remove('activeTheme');
+        document.body.classList.remove(`orange-theme`);
     }
     else{
         coconutTheme.classList.remove('activeTheme');
+        document.body.classList.remove(`coconut-theme`);
     }
 }
 
