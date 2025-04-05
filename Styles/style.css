@@ -134,7 +134,7 @@ a {
     font-family: 'Nunito', sans-serif;
     margin: 5% auto;
     padding: 1.5rem;
-    height: 45%;
+    height: 55%;
     width: 20%;
 }
 
@@ -225,10 +225,9 @@ a {
 }
 
 
-/* .themeBtn:active {
+.activeTheme {
     border: 0.2rem solid pink;
-    this will be the style for when a theme is currently selected 
-} */
+}
 
 .applyButton:hover {
     background-color: #d9d9d9;

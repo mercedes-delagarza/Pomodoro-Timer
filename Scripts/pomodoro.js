@@ -1,7 +1,9 @@
+import { settings, loadFromStorage } from "../Scripts/settings.js";
+
 const Pomodoro = (function () {
     let instance;
 
-    function createInstance(workDuration = 1, shortBreakDuration = 1, longBreakDuration = 1) {
+    function createInstance(workDuration = parseInt(settings.pomTime, 10), shortBreakDuration = parseInt(settings.shortTime, 10), longBreakDuration = parseInt(settings.longTime, 10)) {
         let timer;
         let startTime;
         let remainingTime;
@@ -99,8 +101,12 @@ const Pomodoro = (function () {
             },
 
             saveToStorage() {
-                var count = localStorage.getItem('pomodorosCompleted');
+                var count = parseInt(localStorage.getItem('pomodorosCompleted') || '0', 10);
                 localStorage.setItem('pomodorosCompleted', count++);
+            },
+
+            saveSettings(){
+
             }
         };
     }
@@ -115,6 +121,7 @@ const Pomodoro = (function () {
     };
 })();
 
+loadFromStorage();
 const pomodoro = Pomodoro.getInstance();
 pomodoro.setTimer();
 
@@ -160,6 +167,17 @@ document.addEventListener("visibilitychange", () => {
     }
 });
 
+document.addEventListener('settingsChanged', (event) => {
+    loadFromStorage();
+    pomodoro.workDuration = parseInt(settings.pomTime, 10);
+    pomodoro.shortBreakDuration = parseInt(settings.shortTime, 10);
+    pomodoro.longBreakDuration = parseInt(settings.longTime, 10);
+    pomodoro.workDurationString = `${pomodoro.workDuration}:00`;
+    pomodoro.shortBreakDurationString = `${pomodoro.shortBreakDuration}:00`;
+    pomodoro.longBreakDurationString = `${pomodoro.longBreakDuration}:00`;
+    pomodoro.setTimer();
+}) 
+
 function updateTimerDisplay(timeLeft) {
     const minutes = Math.floor(timeLeft / 60000);
     const seconds = Math.floor((timeLeft % 60000) / 1000);
@@ -177,4 +195,5 @@ function removeActiveStyle() {
         document.querySelector('.js-long-break-button').classList.remove("active");
     }
 }
+
 
