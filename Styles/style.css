@@ -7,19 +7,22 @@
     --bg-color: #ffe5e5;
     --secondary-color: pink;
     --active-btn: rgb(247, 150, 179);
-    --
+    --border-color: white;
+    --text-color: white;
 }
 
 .apple-theme {
     --bg-color: #ffcdcd;
-    --secondary-color: rgb(224, 78, 103);
-    --active-btn: rgb(255, 139, 139);
+    --secondary-color: rgb(226, 108, 127);
+    --active-btn: rgb(224, 78, 103);
+    --border-color: rgb(224, 78, 103);
+    --text-color: rgb(224, 78, 103);
 }
 
 .peach-theme {
-    --bg-color: #fff0c7;
-    --secondary-color: #ed84ab;
-    --active-btn: #f19bbb;
+    --bg-color: #ffe5e5;
+    --secondary-color: pink;
+    --active-btn: rgb(247, 150, 179);
 }
 
 .pear-theme {
@@ -41,7 +44,7 @@
 }
 
 .coconut-theme {
-    --bg-color: #ffeed7;
+    --bg-color: #ebd7bb;
     --secondary-color: rgb(151, 113, 71);
     --active-btn: rgb(188, 146, 87);
 }
@@ -94,7 +97,7 @@ a {
 
 .container {
     border-radius: 2rem;
-    border: 0.5rem solid var(--secondary-color);
+    border: 0.3rem solid var(--secondary-color);
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
     justify-self: center;
     display: flex;

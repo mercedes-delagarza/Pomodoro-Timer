@@ -155,7 +155,7 @@ document.querySelector('.js-long-break-button').addEventListener('click', () => 
     removeActiveStyle();
     pomodoro.currentMode = 'LongBreak';
     document.querySelector('.js-long-break-button').classList.add("active");
-});
+}); 
 
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {

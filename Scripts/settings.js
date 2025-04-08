@@ -87,43 +87,39 @@ applyBtn.onclick = () => {
 appleTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'apple';
-    appleTheme.classList.add('activeTheme');
-    document.body.classList.add(`apple-theme`);
+    showSettings();
 }
 
 peachTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'peach';
-    peachTheme.classList.add('activeTheme');
-    document.body.classList.add(`peach-theme`);
+    showSettings();
 }
 
 pearTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'pear';
-    pearTheme.classList.add('activeTheme');
-    document.body.classList.add(`pear-theme`);
+    showSettings(); 
 }
 
 orangeTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'orange';
-    orangeTheme.classList.add('activeTheme');
-    document.body.classList.add(`orange-theme`);
+    showSettings();
 }
 
 cherryTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'cherry';
     cherryTheme.classList.add('activeTheme');
-    document.body.classList.add(`cherry-theme`);
+    showSettings();
 }
 
 coconutTheme.onclick = () => {
     removeOldTheme();
     settings.theme = 'coconut';
     coconutTheme.classList.add('activeTheme');
-    document.body.classList.add(`coconut-theme`);
+    showSettings();
 }
 
 export function loadFromStorage() {
@@ -150,21 +146,27 @@ function showSettings() {
 
     if (settings.theme === 'apple'){
         appleTheme.classList.add('activeTheme');
+        document.body.classList.add(`apple-theme`);
     }
     else if (settings.theme === 'peach'){
         peachTheme.classList.add('activeTheme');
+        document.body.classList.add(`peach-theme`);
     }
     else if (settings.theme === 'pear'){
         pearTheme.classList.add('activeTheme');
+        document.body.classList.add(`pear-theme`);
     }
     else if (settings.theme === 'cherry'){
         cherryTheme.classList.add('activeTheme');
+        document.body.classList.add(`cherry-theme`);
     }
     else if (settings.theme === 'orange'){
         orangeTheme.classList.add('activeTheme');
+        document.body.classList.add(`orange-theme`);
     }
     else{
         coconutTheme.classList.add('activeTheme');
+        document.body.classList.add(`coconut-theme`);
     }
 }
 
