@@ -32,6 +32,7 @@ const Pomodoro = (function () {
                 else{
                     document.querySelector('.js-pomodoro-time').innerText = `${this.longBreakDurationString}`;
                 }
+                document.querySelector(".dailyPom").innerText = this.completedPomodoros;
             },
 
             start() {
@@ -77,6 +78,7 @@ const Pomodoro = (function () {
                 }
                 else {
                     this.completedPomodoros++;
+                    document.querySelector(".dailyPom").innerText = this.completedPomodoros;
                     this.saveToStorage();
                     if(this.completedPomodoros === 4) {
                         this.currentMode = 'LongBreak';
