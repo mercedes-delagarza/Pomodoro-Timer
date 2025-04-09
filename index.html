@@ -12,23 +12,36 @@
             <h1>pom crossing</h1>
             <div class="menu">
                 <ul>
-                    <li>Stats</li>
                     <li id="settingsButton"><a>Settings</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    <div class="container">
-       <div class="mode-container">
-            <button class="mode-button js-pomodoro-button active">Pomodoro</button>
-            <button class="mode-button js-short-break-button">Short Break</button>
-            <button class="mode-button js-long-break-button">Long Break</button>
-       </div> 
-       <div id="pomodoro-time" class="timer-container js-pomodoro-time"></div>
-       <button class="timer-button js-start-button">
-            <div class="progress-bar"></div>
-            Start
-        </button>
+
+    <div class="bodyContainer">
+
+        <div class="dailyStats">
+            <h2 class="statsTitle">Daily Poms</h2>
+            <h2 class="dailyPom">4</h2>
+        </div>
+
+        <div class="container">
+        <div class="mode-container">
+                <button class="mode-button js-pomodoro-button active">Pomodoro</button>
+                <button class="mode-button js-short-break-button">Short Break</button>
+                <button class="mode-button js-long-break-button">Long Break</button>
+        </div>
+        <div id="pomodoro-time" class="timer-container js-pomodoro-time"></div>
+        <button class="timer-button js-start-button">
+                <div class="progress-bar"></div>
+                Start
+            </button>
+        </div>
+
+        <div class="focusTaskContainer">
+            <h2 class="focusTitle">focus task</h2>
+            <textarea rows="1" cols="20" placeholder="enter task name..." class="focusInput"></textarea>
+        </div> 
     </div>
     <div id="myModal" class="modal">
         <div class="modalContent">

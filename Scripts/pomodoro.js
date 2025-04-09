@@ -1,5 +1,8 @@
 import { settings, loadFromStorage } from "../Scripts/settings.js";
 
+const sound = new Audio('./Sounds/ToyGlock.wav');
+
+
 const Pomodoro = (function () {
     let instance;
 
@@ -44,8 +47,8 @@ const Pomodoro = (function () {
                             updateTimerDisplay(timeLeft);                
                         } else {
                             clearInterval(timer);
+                            sound.play();
                             this.isRunning = false;
-                            alert("Time's up! 🎉");
                             this.switchMode();
                             document.querySelector('.js-start-button').innerText = 'Start';
                         }

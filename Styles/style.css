@@ -9,6 +9,7 @@
     --active-btn: rgb(247, 150, 179);
     --border-color: white;
     --text-color: white;
+    --start-btn-bg: white;
 }
 
 .apple-theme {
@@ -26,27 +27,27 @@
 }
 
 .pear-theme {
-    --bg-color: #dcffed;
-    --secondary-color: rgb(124, 226, 150);
-    --active-btn: rgb(148, 255, 159);
+    --bg-color: #f4fff1;
+    --secondary-color: #83d8a2;
+    --active-btn: #519e80;
 }
 
 .cherry-theme {
-    --bg-color: #ffbdbd;
-    --secondary-color: rgb(255, 107, 132);
-    --active-btn: rgb(245, 135, 115);
+    --bg-color: #eadaff;
+    --secondary-color: rgb(194, 147, 255);
+    --active-btn: rgb(154, 120, 217);
 }
 
 .orange-theme {
-    --bg-color: #ffe0b9;
-    --secondary-color: rgb(255, 194, 108);
-    --active-btn: rgb(255, 208, 138);
+    --bg-color: #e0f8ff;
+    --secondary-color: rgb(136, 217, 255);
+    --active-btn: rgb(79, 150, 205);
 }
 
 .coconut-theme {
-    --bg-color: #ebd7bb;
+    --bg-color: #ffebd0;
     --secondary-color: rgb(151, 113, 71);
-    --active-btn: rgb(188, 146, 87);
+    --active-btn: rgb(171, 142, 103);
 }
 body {
     height: 100vh;
@@ -94,17 +95,42 @@ a {
     cursor: pointer;
 }
 
+.bodyContainer {
+    display: flex;
+    margin-top: 8rem;
+    justify-content: center;
+}
+
+.dailyStats {
+    background-color: white;
+    border-radius: 1rem;
+    color: var(--active-btn);
+    display: flex;
+    flex-direction: column;
+    height: 10rem;
+    width: 12rem;
+    margin: 6rem 2rem;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+.dailyPom {
+    color: var(--active-btn);
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.5rem;
+    margin: 0.5rem 0.5rem;
+}
 
 .container {
     border-radius: 2rem;
-    border: 0.3rem solid var(--secondary-color);
-    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: var(--secondary-color);
+    font-family: 'Nunito', sans-serif;
     justify-self: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
     margin-top: 6rem;
     width: 45%;
     height: 45%;
@@ -112,9 +138,8 @@ a {
 
 .mode-container {
     display: flex;
-    gap: 1rem;
-    margin: 0.4rem;
-    padding: 1.5rem;
+    gap: auto;
+    margin: 1.5rem 1rem;
     justify-self: center;
 }
 
@@ -133,6 +158,32 @@ a {
     margin-right: 1rem;
 }
 
+.focusTaskContainer {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+    color: var(--active-btn);
+    align-items: center;
+    border-radius: 1rem;
+    background-color: white;
+    height: 8rem;
+    width: 15rem;
+    padding-bottom: 1rem;
+    margin: 6rem 2rem;
+}
+
+.focusInput {
+    border: none;
+    background-color: transparent;
+    color: var(--active-btn);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    flex: 1;
+    text-align: center;
+    resize: none;
+}
+
 .timer-container {
     font-size: 7rem;
     font-family: 'Quicksand', sans-serif;
@@ -144,6 +195,7 @@ a {
 .timer-button {
     border: none;
     border-radius: 15px;
+    background-color: var(--start-btn-bg);
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
@@ -152,11 +204,11 @@ a {
     height: 3rem;
     margin: 1.5rem;
     justify-self: center;
-
 }
 
 .active {
     background: var(--active-btn);
+    border-color: var(--active-btn);
 }
 
 .modal {
@@ -245,8 +297,7 @@ a {
 .themeBtn {
     border: none;
     border-radius: 1rem;
-    background-color: rgb(254, 241, 221);
-    background-image: url('/images/fruit.png');
+    background-color: var(--secondary-color);
     background-position: center;
     background-size: contain;
     width: 3rem;
@@ -278,3 +329,4 @@ a {
 .applyButton:hover {
     background-color: #d9d9d9;
 }
+
