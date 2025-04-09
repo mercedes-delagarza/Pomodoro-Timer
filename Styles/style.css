@@ -95,6 +95,11 @@ a {
     cursor: pointer;
 }
 
+.settingsImg {
+    width: 30px;
+    height: 30px;
+}
+
 .bodyContainer {
     display: flex;
     margin-top: 8rem;

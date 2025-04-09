@@ -17,7 +17,7 @@ const Pomodoro = (function () {
             workDurationString: `${workDuration}:00`,
             shortBreakDurationString: `${shortBreakDuration}:00`, 
             longBreakDurationString: `${longBreakDuration}:00`,
-            completedPomodoros: 0,
+            completedPomodoros: parseInt(localStorage.getItem('pomodorosCompleted') || '0', 10),
             isRunning: false,
             currentMode: 'Pomodoro',
 
@@ -92,7 +92,6 @@ const Pomodoro = (function () {
                         document.querySelector('.js-short-break-button').classList.add("active");
                     }
                 }
-                console.log(`switched to mode: ${this.currentMode}`);
             },
 
             getTime() {
@@ -110,8 +109,8 @@ const Pomodoro = (function () {
                 localStorage.setItem('pomodorosCompleted', count++);
             },
 
-            saveSettings(){
-
+            resetPomodoro() {
+                localStorage.setItem('pomodorosCompleted', 0);
             }
         };
     }
@@ -129,6 +128,7 @@ const Pomodoro = (function () {
 loadFromStorage();
 const pomodoro = Pomodoro.getInstance();
 pomodoro.setTimer();
+setMidnight(resetPomodoroCount);
 
 // event listeners
 document.querySelector('.js-start-button').addEventListener('click', () => {
@@ -201,4 +201,21 @@ function removeActiveStyle() {
     }
 }
 
+function setMidnight(callback) {
+    const now = new Date();
+    const midnight = new Date(now);
+
+    midnight.setHours(24, 0, 0);
+
+    const timeUntilMidnight = midnight - now;
+
+    setTimeout(function () {
+        resetPomodoroCount();
+        setMidnight(resetPomodoroCount);
+    }, timeUntilMidnight);
+}
+
+function resetPomodoroCount() {
+    localStorage.setItem('pomodorosCompleted', 0);
+}
 
