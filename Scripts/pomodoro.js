@@ -19,6 +19,7 @@ const Pomodoro = (function () {
             longBreakDurationString: `${longBreakDuration}:00`,
             completedPomodoros: parseInt(localStorage.getItem('pomodorosCompleted') || '0', 10),
             isRunning: false,
+            timeLeft: 0,
             currentMode: 'Pomodoro',
 
             setTimer() {
@@ -39,13 +40,13 @@ const Pomodoro = (function () {
                 startTime = Date.now();
                 let elapsedTime = 0;
                 const time = this.getTime();
-                let timeLeft = (time * 60 * 1000);
+                this.timeLeft = (time * 60 * 1000);
                 if(!this.isRunning){
                     this.isRunning = true;
                     timer = setInterval(() => {
-                        if(timeLeft > 0){
-                            timeLeft -= 1000;
-                            updateTimerDisplay(timeLeft);                
+                        if(this.timeLeft > 0){
+                            this.timeLeft -= 1000;
+                            updateTimerDisplay(this.timeLeft);                
                         } else {
                             clearInterval(timer);
                             sound.play();
@@ -65,6 +66,7 @@ const Pomodoro = (function () {
                     this.currentMode = 'Pomodoro';
                     document.querySelector('.js-pomodoro-button').classList.add("active");
                 }
+                document.getElementById('tab').innerText = `${pomodoro.workDurationString} | Focus`;
                 document.getElementById('pomodoro-time').innerText = `${this.workDurationString}`;
                 document.querySelector('.js-start-button').innerText = 'Start';
             },
@@ -79,7 +81,7 @@ const Pomodoro = (function () {
                 else {
                     this.completedPomodoros++;
                     document.querySelector(".dailyPom").innerText = this.completedPomodoros;
-                    this.saveToStorage();
+                    this.savePomToStorage();
                     if(this.completedPomodoros === 4) {
                         this.currentMode = 'LongBreak';
                         this.completedPomodoros = 0;
@@ -104,9 +106,9 @@ const Pomodoro = (function () {
                 }
             },
 
-            saveToStorage() {
+            savePomToStorage() {
                 var count = parseInt(localStorage.getItem('pomodorosCompleted') || '0', 10);
-                localStorage.setItem('pomodorosCompleted', count++);
+                localStorage.setItem('pomodorosCompleted', count + 1);
             },
 
             resetPomodoro() {
@@ -135,40 +137,62 @@ document.querySelector('.js-start-button').addEventListener('click', () => {
     if(!pomodoro.isRunning){
         document.querySelector('.js-start-button').innerText = 'Stop';
         pomodoro.start();
+        console.log(pomodoro.currentMode);
     }else {
-        document.querySelector('.js-start-button').innerText = 'Start';
-        pomodoro.stop();
+        stopTimer();
     }
 });
 
 document.querySelector('.js-pomodoro-button').addEventListener('click', () => {
+    if(pomodoro.isRunning) {
+        stopTimer();
+    }
     document.getElementById('pomodoro-time').innerText = `${pomodoro.workDurationString}`;
     removeActiveStyle();
     pomodoro.currentMode = 'Pomodoro';
     document.querySelector('.js-pomodoro-button').classList.add("active");
+    document.getElementById('tab').innerText = `${pomodoro.workDurationString} | Focus`;
 });
 
 document.querySelector('.js-short-break-button').addEventListener('click', () => {
+    if(pomodoro.isRunning) {
+        stopTimer();
+    }
     document.getElementById('pomodoro-time').innerText = `${pomodoro.shortBreakDurationString}`;
     removeActiveStyle();
     pomodoro.currentMode = 'ShortBreak';
     document.querySelector('.js-short-break-button').classList.add("active");
+    document.getElementById('tab').innerText = `${pomodoro.shortBreakDurationString} | Break`;
 });
 
 document.querySelector('.js-long-break-button').addEventListener('click', () => {
+    if(pomodoro.isRunning) {
+        stopTimer();
+    }
     document.getElementById('pomodoro-time').innerText = `${pomodoro.longBreakDurationString}`;
     removeActiveStyle();
     pomodoro.currentMode = 'LongBreak';
     document.querySelector('.js-long-break-button').classList.add("active");
+    document.getElementById('tab').innerText = `${pomodoro.longBreakDurationString} | Break`;
 }); 
 
 document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-        pomodoro.remainingTime -= Date.now() - pomodoro.startTime;
-        clearInterval(pomodoro.timer);
-    } else {
-        pomodoro.startTime = Date.now();
-        pomodoro.timer = setInterval(updateTimerDisplay, 1000);
+    if(pomodoro.isRunning){
+        if (document.hidden) {
+            const elapsed = Math.floor((Date.now() - pomodoro.startTime) / 1000);
+            pomodoro.remainingTime -= elapsed;
+
+            if(pomodoro.remainingTime < 0) 
+                pomodoro.remainingTime = 0;
+
+            clearInterval(pomodoro.timer);
+
+        } else {
+            if(pomodoro.remainingTime === undefined || pomodoro.startTime === undefined){
+                pomodoro.remainingTime = pomodoro.getTime() * 60;
+            }
+            pomodoro.startTime = Date.now();
+        }
     }
 });
 
@@ -188,7 +212,7 @@ function updateTimerDisplay(timeLeft) {
     const seconds = Math.floor((timeLeft % 60000) / 1000);
 
     document.getElementById('pomodoro-time').innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-    document.getElementById('tab').innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds} Pom Garden`;
+    document.getElementById('tab').innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds} | ${pomodoro.currentMode === 'Pomodoro' ? 'Focus' : 'Break'}`;
 }
 
 function removeActiveStyle() {
@@ -219,3 +243,7 @@ function resetPomodoroCount() {
     localStorage.setItem('pomodorosCompleted', 0);
 }
 
+function stopTimer() {
+    document.querySelector('.js-start-button').innerText = 'Start';
+    pomodoro.stop();
+}

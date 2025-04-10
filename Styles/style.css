@@ -13,7 +13,7 @@
 .red-theme {
     --bg-color: #ffcdcd;
     --secondary-color: rgb(226, 108, 127);
-    --active-btn: rgb(224, 78, 103);
+    --active-btn: rgb(201, 69, 91);
 }
 
 .pink-theme {
@@ -24,20 +24,20 @@
 
 .green-theme {
     --bg-color: #d4ffe2;
-    --secondary-color: #89dca5;
+    --secondary-color: #8fdba8;
     --active-btn: #4eae73;
 }
 
 .purple-theme {
     --bg-color: #efe4fe;
-    --secondary-color: rgb(219, 174, 255);
+    --secondary-color: rgb(225, 188, 255);
     --active-btn: rgb(169, 138, 228);
 }
 
 .blue-theme {
     --bg-color: #e0f8ff;
-    --secondary-color: rgb(136, 217, 255);
-    --active-btn: rgb(79, 150, 205);
+    --secondary-color: rgb(155, 226, 254);
+    --active-btn: rgb(69, 185, 232);
 }
 
 .beige-theme {
@@ -48,7 +48,7 @@
 
 body {
     height: 100vh;
-    background: var(--bg-color);
+    background: linear-gradient(var(--bg-color), white);
     background-repeat: no-repeat;
     background-size: auto;
     margin: 0;
@@ -72,8 +72,9 @@ header {
 h1 {
     font-family: 'League Spartan', sans-serif;
     color: white;
-    padding-left: 2rem;
+    padding-left: 2em;
     font-size: 2rem;
+    letter-spacing: 0.01em;
 }
 
 
@@ -85,7 +86,7 @@ ul {
     color: white;
     font-family: 'Quicksand', sans-serif;
     gap: 1rem;
-    padding-right: 2rem;
+    padding-right: 2em;
 }
 
 a {
@@ -101,11 +102,13 @@ a {
     display: flex;
     margin-top: 8rem;
     justify-content: center;
+    height: 60%;
 }
 
 .dailyStats {
     background-color: white;
     border-radius: 1rem;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
     color: var(--active-btn);
     display: flex;
     flex-direction: column;
@@ -125,7 +128,9 @@ a {
 
 .container {
     border-radius: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     background-color: var(--secondary-color);
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Nunito', sans-serif;
     justify-self: center;
     display: flex;
@@ -135,13 +140,12 @@ a {
     overflow: hidden;
     margin-top: 6rem;
     width: 45%;
-    height: 45%;
 }
 
 .mode-container {
     display: flex;
     gap: auto;
-    margin: 1.5rem 1rem;
+    margin: 1.5em 1em;
     justify-self: center;
 }
 
@@ -154,10 +158,10 @@ a {
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
     font-size: 1rem;
-    width: 8rem;
-    height: 3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    width: 12em;
+    height: 3em;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .focusTaskContainer {
@@ -167,10 +171,11 @@ a {
     color: var(--active-btn);
     align-items: center;
     border-radius: 1rem;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
     height: 8rem;
     width: 15rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1em;
     margin: 6rem 2rem;
 }
 
@@ -187,9 +192,9 @@ a {
 }
 
 .timer-container {
-    font-size: 7rem;
+    font-size: 9rem;
     font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
+    font-weight: bolder;
     color: white;
     justify-self: center;
 }
@@ -234,14 +239,14 @@ a {
     display: flexbox;
     font-family: 'Nunito', sans-serif;
     margin: 5% auto;
-    padding: 1.5rem;
+    padding: 1.5em;
     height: 55%;
     width: 20%;
 }
 
 .settingHeading {
     color: black;
-    padding: 0;
+    padding: 0em;
     display: inline-block;
 }
 
@@ -264,7 +269,7 @@ a {
 }
 
 .settingsSection {
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.5em;
     border-bottom: 0.1rem solid #ccc;
 }
 
@@ -294,7 +299,7 @@ a {
 .themeBtnSection {
     display: flex;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 0 1em;
 }
 
 .themeBtn {
@@ -345,7 +350,6 @@ a {
     background-color: #d9d9d9;
 }
 
-
 .activeTheme {
     border: 0.2rem solid black;
 }
@@ -354,3 +358,10 @@ a {
     background-color: #d9d9d9;
 }
 
+.timer-button, .mode-button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.timer-button:hover, .mode-button:hover, .applyButton:hover, .settingsImg:hover, .themeBtn:hover {
+    transform: scale(1.05);
+}
