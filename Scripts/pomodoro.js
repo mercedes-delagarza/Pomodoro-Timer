@@ -1,7 +1,7 @@
 import { settings, loadFromStorage } from "../Scripts/settings.js";
 
 const sound = new Audio('./Sounds/ToyGlock.wav');
-
+const stopBtn = document.querySelector('.js-start-button');
 
 const Pomodoro = (function () {
     let instance;
@@ -137,7 +137,6 @@ document.querySelector('.js-start-button').addEventListener('click', () => {
     if(!pomodoro.isRunning){
         document.querySelector('.js-start-button').innerText = 'Stop';
         pomodoro.start();
-        console.log(pomodoro.currentMode);
     }else {
         stopTimer();
     }

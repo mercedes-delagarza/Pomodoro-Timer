@@ -365,3 +365,13 @@ a {
 .timer-button:hover, .mode-button:hover, .applyButton:hover, .settingsImg:hover, .themeBtn:hover {
     transform: scale(1.05);
 }
+
+.progress-ring {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(163, 1, 1);
+    width: 0%;
+    transition: width 0s;
+}
