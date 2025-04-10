@@ -6,12 +6,12 @@ var applyBtn = document.querySelector(".applyButton");
 const pomInput = document.getElementById("pomodoro");
 const shortInput = document.getElementById("shortBreak");
 const longInput = document.getElementById("longBreak");
-const appleTheme = document.getElementById("apple");
-const peachTheme = document.getElementById("peach");
-const pearTheme = document.getElementById("pear");
-const cherryTheme = document.getElementById("cherry");
-const orangeTheme = document.getElementById("orange");
-const coconutTheme = document.getElementById("coconut");
+const redTheme = document.getElementById("red");
+const pinkTheme = document.getElementById("pink");
+const greenTheme = document.getElementById("green");
+const purpleTheme = document.getElementById("purple");
+const blueTheme = document.getElementById("blue");
+const beigeTheme = document.getElementById("beige");
 
 loadFromStorage();
 showSettings();
@@ -84,41 +84,41 @@ applyBtn.onclick = () => {
     settingsUpdated();
 }
 
-appleTheme.onclick = () => {
+redTheme.onclick = () => {
     removeOldTheme();
-    settings.theme = 'apple';
+    settings.theme = 'red';
     showSettings();
 }
 
-peachTheme.onclick = () => {
+pinkTheme.onclick = () => {
     removeOldTheme();
-    settings.theme = 'peach';
+    settings.theme = 'pink';
     showSettings();
 }
 
-pearTheme.onclick = () => {
+greenTheme.onclick = () => {
+    console.log('green button pressed')
     removeOldTheme();
-    settings.theme = 'pear';
+    settings.theme = 'green';
     showSettings(); 
 }
 
-orangeTheme.onclick = () => {
+blueTheme.onclick = () => {
+    console.log('blue button pressed')
     removeOldTheme();
-    settings.theme = 'orange';
+    settings.theme = 'blue';
     showSettings();
 }
 
-cherryTheme.onclick = () => {
+purpleTheme.onclick = () => {
     removeOldTheme();
-    settings.theme = 'cherry';
-    cherryTheme.classList.add('activeTheme');
+    settings.theme = 'purple';
     showSettings();
 }
 
-coconutTheme.onclick = () => {
+beigeTheme.onclick = () => {
     removeOldTheme();
-    settings.theme = 'coconut';
-    coconutTheme.classList.add('activeTheme');
+    settings.theme = 'beige';
     showSettings();
 }
 
@@ -130,7 +130,7 @@ export function loadFromStorage() {
             pomTime: 25,
             shortTime: 5,
             longTime: 20,
-            theme: 'apple'
+            theme: 'red'
         };
     }
 }
@@ -144,29 +144,29 @@ function showSettings() {
     shortInput.value = settings.shortTime;
     longInput.value = settings.longTime;
 
-    if (settings.theme === 'apple'){
-        appleTheme.classList.add('activeTheme');
-        document.body.classList.add(`apple-theme`);
+    if (settings.theme === 'red'){
+        redTheme.classList.add('activeTheme');
+        document.body.classList.add('red-theme');
     }
-    else if (settings.theme === 'peach'){
-        peachTheme.classList.add('activeTheme');
-        document.body.classList.add(`peach-theme`);
+    else if (settings.theme === 'pink'){
+        pinkTheme.classList.add('activeTheme');
+        document.body.classList.add('pink-theme');
     }
-    else if (settings.theme === 'pear'){
-        pearTheme.classList.add('activeTheme');
-        document.body.classList.add(`pear-theme`);
+    else if (settings.theme === 'green'){
+        greenTheme.classList.add('activeTheme');
+        document.body.classList.add('green-theme');
     }
-    else if (settings.theme === 'cherry'){
-        cherryTheme.classList.add('activeTheme');
-        document.body.classList.add(`cherry-theme`);
+    else if (settings.theme === 'blue'){
+        blueTheme.classList.add('activeTheme');
+        document.body.classList.add('blue-theme');
     }
-    else if (settings.theme === 'orange'){
-        orangeTheme.classList.add('activeTheme');
-        document.body.classList.add(`orange-theme`);
+    else if (settings.theme === 'purple'){
+        purpleTheme.classList.add('activeTheme');
+        document.body.classList.add('purple-theme');
     }
     else{
-        coconutTheme.classList.add('activeTheme');
-        document.body.classList.add(`coconut-theme`);
+        beigeTheme.classList.add('activeTheme');
+        document.body.classList.add('beige-theme');
     }
 }
 
@@ -217,29 +217,29 @@ function validateTimeSettings() {
 
 function removeOldTheme() {
 
-    if (settings.theme === 'apple'){
-        appleTheme.classList.remove('activeTheme');
-        document.body.classList.remove(`apple-theme`);
+    if (settings.theme === 'red'){
+        redTheme.classList.remove('activeTheme');
+        document.body.classList.remove('red-theme');
     }
-    else if (settings.theme === 'peach'){
-        peachTheme.classList.remove('activeTheme');
-        document.body.classList.remove(`peach-theme`);
+    else if (settings.theme === 'pink'){
+        pinkTheme.classList.remove('activeTheme');
+        document.body.classList.remove('pink-theme');
     }
-    else if (settings.theme === 'pear'){
-        pearTheme.classList.remove('activeTheme');
-        document.body.classList.remove(`pear-theme`);
+    else if (settings.theme === 'green'){
+        greenTheme.classList.remove('activeTheme');
+        document.body.classList.remove('green-theme');
     }
-    else if (settings.theme === 'cherry'){
-        cherryTheme.classList.remove('activeTheme');
-        document.body.classList.remove(`cherry-theme`);
+    else if (settings.theme === 'purple'){
+        purpleTheme.classList.remove('activeTheme');
+        document.body.classList.remove('purple-theme');
     }
-    else if (settings.theme === 'orange'){
-        orangeTheme.classList.remove('activeTheme');
-        document.body.classList.remove(`orange-theme`);
+    else if (settings.theme === 'blue'){
+        blueTheme.classList.remove('activeTheme');
+        document.body.classList.remove('blue-theme');
     }
     else{
-        coconutTheme.classList.remove('activeTheme');
-        document.body.classList.remove(`coconut-theme`);
+        beigeTheme.classList.remove('activeTheme');
+        document.body.classList.remove('beige-theme');
     }
 }
 

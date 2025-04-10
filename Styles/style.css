@@ -7,48 +7,45 @@
     --bg-color: #ffe5e5;
     --secondary-color: pink;
     --active-btn: rgb(247, 150, 179);
-    --border-color: white;
-    --text-color: white;
     --start-btn-bg: white;
 }
 
-.apple-theme {
+.red-theme {
     --bg-color: #ffcdcd;
     --secondary-color: rgb(226, 108, 127);
     --active-btn: rgb(224, 78, 103);
-    --border-color: rgb(224, 78, 103);
-    --text-color: rgb(224, 78, 103);
 }
 
-.peach-theme {
+.pink-theme {
     --bg-color: #ffe5e5;
     --secondary-color: pink;
     --active-btn: rgb(247, 150, 179);
 }
 
-.pear-theme {
-    --bg-color: #f4fff1;
-    --secondary-color: #83d8a2;
-    --active-btn: #519e80;
+.green-theme {
+    --bg-color: #d4ffe2;
+    --secondary-color: #89dca5;
+    --active-btn: #4eae73;
 }
 
-.cherry-theme {
-    --bg-color: #eadaff;
-    --secondary-color: rgb(194, 147, 255);
-    --active-btn: rgb(154, 120, 217);
+.purple-theme {
+    --bg-color: #efe4fe;
+    --secondary-color: rgb(219, 174, 255);
+    --active-btn: rgb(169, 138, 228);
 }
 
-.orange-theme {
+.blue-theme {
     --bg-color: #e0f8ff;
     --secondary-color: rgb(136, 217, 255);
     --active-btn: rgb(79, 150, 205);
 }
 
-.coconut-theme {
-    --bg-color: #ffebd0;
-    --secondary-color: rgb(151, 113, 71);
-    --active-btn: rgb(171, 142, 103);
+.beige-theme {
+    --bg-color: #fff4e6;
+    --secondary-color: rgb(183, 149, 110);
+    --active-btn: rgb(125, 105, 78);
 }
+
 body {
     height: 100vh;
     background: var(--bg-color);
@@ -202,6 +199,7 @@ a {
     border-radius: 15px;
     background-color: var(--start-btn-bg);
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+    color: var(--active-btn);
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
     font-size: 1.3rem;
@@ -302,11 +300,32 @@ a {
 .themeBtn {
     border: none;
     border-radius: 1rem;
-    background-color: var(--secondary-color);
-    background-position: center;
-    background-size: contain;
     width: 3rem;
     height: 3rem;
+}
+
+#red {
+    background-color: rgb(226, 108, 127);
+}
+
+#pink{
+    background-color: pink;
+}
+
+#blue {
+    background-color: rgb(136, 217, 255);
+}
+
+#green {
+    background-color: #89dca5;
+}
+
+#purple {
+    background-color: rgb(219, 174, 255);
+}
+
+#beige {
+    background-color: rgb(183, 149, 110);
 }
 
 .applyButton {
@@ -328,7 +347,7 @@ a {
 
 
 .activeTheme {
-    border: 0.2rem solid pink;
+    border: 0.2rem solid black;
 }
 
 .applyButton:hover {
