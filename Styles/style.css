@@ -140,13 +140,15 @@ a {
     overflow: hidden;
     margin-top: 6rem;
     width: 45%;
+    min-height: 400px;
 }
 
 .mode-container {
     display: flex;
-    gap: auto;
+    gap: 1rem;
     margin: 1.5em 1em;
-    justify-self: center;
+    justify-content: center;
+    width: 90%;
 }
 
 .mode-button {
@@ -157,7 +159,7 @@ a {
     color: white;
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1em;
     width: 12em;
     height: 3em;
     margin-left: 1em;
@@ -366,12 +368,76 @@ a {
     transform: scale(1.05);
 }
 
-.progress-ring {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    background: rgb(163, 1, 1);
-    width: 0%;
-    transition: width 0s;
+/* For small screens, such as phones */
+@media screen and (max-width: 1000px) {
+
+    .bodyContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "pomodoro pomodoro"
+            "dailyStats focusTaskContainer";
+        height: auto;
+        align-items: center;
+        margin-top: 3rem;
+    }
+
+    .container {
+        grid-area: pomodoro;
+        justify-content: center;
+        width: 80%;
+        order: -1;
+    }
+
+    .mode-button {
+        font-size: 90%;
+    }
+    .timer-container {
+        font-size: 8em;
+        color: pink;
+    }
+
+    .dailyStats {
+        grid-area: dailyStats;
+    }
+
+    .focusTaskContainer {
+        grid-area: focusTaskContainer;
+    }
+  }
+  
+  /* For tablets, typically in portrait mode */
+  @media screen and (min-width: 768px) {
+    
+    .mode-button {
+        font-size: 95%;
+    }
+    .timer-container {
+        font-size: 8em;
+        color: purple;
+    }
 }
+  
+  /* For larger screens, like laptops and desktops */
+  @media screen and (min-width: 1080px) {
+    .mode-button {
+        font-size: 1em;
+    }
+
+    .timer-container {
+        font-size: 8em;
+        color: red;
+    }
+  }
+  
+  /* For extra-large screens (e.g., big desktop monitors) */
+  @media screen and (min-width: 1200px) {
+    .mode-button {
+        font-size: 1em;
+    }
+
+    .timer-container {
+        font-size: 9em;
+        color: green;
+    }
+  }
